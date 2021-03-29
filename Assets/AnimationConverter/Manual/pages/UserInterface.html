@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="../styles/Favicon.png" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Animation Converter - User Interface</title>
+		<link rel="stylesheet" type="text/css" href="../styles/theme_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../styles/treeview_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../styles/element_styles.css" media="screen">
+	</head>
+	<body>
+		<div class="header">
+			<div class="headerLogo">
+				<img src="../styles/AnimationConverterLogoHeader.png"></img>
+			</div>
+			<div class="headerBlueRight">
+				<a href="https://www.soxware.com" class="headerLink">soxware.com</a>
+			</div>
+		</div>
+		<div class="versionHeader">
+			<p class="versionText">Version: <b>1.02p03</b> </p>
+		</div>
+		<div class="leftContent">
+			<div class="leftContentInner">
+				<div class="leftContentHeadline">
+					Animation Converter
+				</div>
+				<!-- Tree View -->
+				<ol class="tree">
+					
+<li class="file"><a href="../AnimationConverterManual.html">Animation Converter Manual</a></li>
+
+<li>
+	<label for="VideoTutorial"><a href="VideoTutorial.html" class="treeFolderLink">Video Tutorial</a></label> <input type="checkbox"  id="VideoTutorial" /> 
+	<ol>
+<li class="file"><a href="Tutorial1.html">Video Tutorial 1</a></li>
+
+<li class="file"><a href="Tutorial2.html">Video Tutorial 2</a></li>
+</ol>
+</li>
+
+<li class="file"><a href="UserInterface.html"><b><u>User Interface</u></b></a></li>
+
+<li>
+	<label for="ScriptingAPI"><a href="ScriptingAPI.html" class="treeFolderLink">C# Scripting API</a></label> <input type="checkbox"  id="ScriptingAPI" /> 
+	<ol>
+<li>
+	<label for="Methods"><a href="Methods.html" class="treeFolderLink">Methods</a></label> <input type="checkbox"  id="Methods" /> 
+	<ol>
+<li class="file"><a href="AnimationConverterConvert.html">Convert</a></li>
+
+<li class="file"><a href="AnimationConverterGetAnimationType.html">GetAnimationType</a></li>
+
+<li class="file"><a href="AnimationConverterGetAllGenericRootMotionBones.html">GetAllGenericRootMotionBones</a></li>
+
+<li class="file"><a href="AnimationConverterGetVersion.html">GetVersion</a></li>
+
+<li class="file"><a href="AnimationConverterCloneWithoutComponents.html">CloneWithoutComponents</a></li>
+</ol>
+</li>
+
+<li>
+	<label for="Types"><a href="Types.html" class="treeFolderLink">Types</a></label> <input type="checkbox"  id="Types" /> 
+	<ol>
+<li class="file"><a href="AnimationConverterConfiguration.html">class Configuration</a></li>
+
+<li class="file"><a href="AnimationConverterPrefabPair.html">struct PrefabPair</a></li>
+
+<li class="file"><a href="AnimationConverterConstrainMask.html">struct ConstrainMask</a></li>
+
+<li class="file"><a href="AnimationConverterAnimationType.html">enum AnimationType</a></li>
+
+<li class="file"><a href="AnimationConverterKeyReductionMode.html">enum KeyReductionMode</a></li>
+</ol>
+</li>
+</ol>
+</li>
+
+<li class="file"><a href="Support.html">Support / FAQ</a></li>
+
+<li class="file"><a href="ReleaseNotes.html">Release Notes</a></li>
+
+<li class="file"><a href="Credits.html">Credits</a></li>
+
+				</ol>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="mainContentInner">
+				<h1 class="headline1" id="">User Interface</h1><p class="textBlock">In order to open the Animation Converter Window, navigate to Unity's Menu Bar and click on <b>Window --> Animation Converter</b>.</p><table class="containerTable"><tr class="containerTableRow">
+    <td class="containerTableCell">
+        <img src="../images/AnimationConverterWindow.png" class="image"></img>
+<p class="imageText">Animation Converter - Editor Window</p>
+    </td>
+    <td class="containerTableCell">
+        <h2 class="headline2" id="">Animation Converter Window</h2>
+        
+        <p class="textBlock">For converting animations provide all the information requested by the Animation Converter Window. Each input field has a helping tooltip (hover over the text label). Errors are displayed immediately below the corresponding input field.</p>
+
+        <p class="textBlock">Please note that the source code of the window is included in this package (see <a href="ScriptingAPI.html" class="link">C# Scripting API</a>). Feel free to adapt it to your needs.</p>
+
+        <h3 class="headline3" id="">Input</h3>
+        <p class="textBlock">Drag & Drop all clips that should be converted from Unity's Project Window onto the appropriate field of the Animation Converter Window. All clips need to be of the same animation type.</p>
+        <p class="textBlock">Tip: Select multiple files in Unity's Project Window to drag&drop them at once to save time. It's also possible to drag & drop 3D model files (e.g. *.fbx) to add all animations included in that file.</p>
+
+
+        <h3 class="headline3" id="">Output</h3>
+        <p class="textBlock">Select the animation type the clips should be converted to. It's also necessary to select a directory where the converted clips should be stored at.</p>
+
+        <p class="textBlock">Attention: If the desired output directory doesn't exist yet, create it inside Unity's Project Window. Empty folders that are created outside of Unity (or within the "Open Folder Dialog") are usually not recognized by Unity.</p>
+        
+        <h3 class="headline3" id="">Settings</h3>
+        <p class="textBlock">The settings are different depending on the conversion that should be performed:</p>
+
+        <table class="themeTable">
+            <tr class="themeTableRow">
+                <th class="themeTableHeader">Setting</th>
+                <th class="themeTableHeader">Description</th>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Key Reduction</td>
+                <td class="themeTableCell">The strategy used to remove redundant keys.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Position Error</td>
+                <td class="themeTableCell">Defines the tolerated amount of position error when converting with the "Lossy" Key Reduction strategy. The error value is defined as delta deviation in percentage. A smaller value results in a better looking animation with bigger file size.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Rotation Error</td>
+                <td class="themeTableCell">Defines the tolerated amount of rotation error when converting with the "Lossy" Key Reduction strategy. The error value is defined as delta deviation in percentage. A smaller value results in a better looking animation with bigger file size.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Scale Error</td>
+                <td class="themeTableCell">Defines the tolerated amount of scale error when converting with the "Lossy" Key Reduction strategy. The error value is defined as delta deviation in percentage. A smaller value results in a better looking animation with bigger file size.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Keep Extra Bones</td>
+                <td class="themeTableCell">Only visible when converting to Humanoid. When enabled animated transforms that are not defined in the Humanoid Avatar will be included as generic animation curves.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Humanoid Hand IK</td>
+                <td class="themeTableCell">Only visible when converting a humanoid animation to generic or legacy. Defines if Mecanim's humanoid IK should be enabled for the hands while sampling the humanoid animation.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Humanoid Foot IK</td>
+                <td class="themeTableCell">Only visible when converting a humanoid animation to generic or legacy. Defines if Mecanim's humanoid IK should be enabled for the feet while sampling the humanoid animation.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Constrain Root Position</td>
+                <td class="themeTableCell">Only visible when converting a humanoid animation to generic or legacy. Defines if the x, y or z value of the root motion position should be constrained (i.e. kept at a constant value) for the whole animation. This is useful for converting root motion driven animations to in-place animations.</td>
+            </tr>
+            <tr class="themeTableRow">
+                <td class="themeTableCell" style="white-space: nowrap;">Constrain Root Rotation</td>
+                <td class="themeTableCell">Only visible when converting a humanoid animation to generic or legacy. Defines if the x, y or z value of the root motion euler rotation should be constrained (i.e. kept at a constant value). This is useful for converting root motion driven animations to in-place animations.</td>
+            </tr>
+        </table>
+        
+        <h3 class="headline3" id="">Prefabs</h3>
+        <p class="textBlock">It is necessary to assign the prefabs related to the animations that should be converted. It is recommended to directly use the prefab of the model (e.g. the *.fbx file).</p>
+
+        <p class="textBlock">The <b>Input</b> prefab needs to be the same model as the animations have been created for. Additionally it needs to be configured in the same animation type as the animations that should be converted.</p>
+
+        <p class="textBlock">For the <b>Output</b> prefab it's necessary to follow the instructions shown in the UI. Duplicate the model (e.g. the *.fbx file) and configure the duplicated model to the same animation type as to which the animations should be converted to. Assign the duplicated model as <b>Output</b> prefab.</p>
+
+        <p class="textBlock">By clicking on <b>Add Row</b> it is possible to add multiple Input/Output prefab pairs. This is useful when converting (retargeting) humanoid animation clips so that they can be used by multiple generic/legacy models. Therefore it is necessary to add a source and destination prefab for each 3D model that will use the animation clips. The converter will then create one animation clip for each 3D model.</p>
+        
+        <h3 class="headline3" id="">Convert</h3>
+        <p class="textBlock">If everything was setup correctly the conversion starts when clicking on <b>Convert</b>. A log window is displayed after the conversion finished.</p>
+    </td>
+</tr></table>
+				<div class="mainContentFooter">
+					<p class="textBlock" style="float:left">Copyright © 2018 Soxware Interactive ALL RIGHTS RESERVED</p>
+					<p class="textBlock" align="right"><a href="https://www.facebook.com/Soxware/" class="link">Facebook</a> | <a href="https://twitter.com/SoxwareInteract" class="link">Twitter</a> | <a href="https://www.youtube.com/channel/UCCuE6nI5gHvUQjx0lo6Twtg" class="link">Youtube</a></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

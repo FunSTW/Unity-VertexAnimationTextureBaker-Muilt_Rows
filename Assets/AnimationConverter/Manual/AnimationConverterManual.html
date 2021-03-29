@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="styles/Favicon.png" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Animation Converter - Animation Converter Manual</title>
+		<link rel="stylesheet" type="text/css" href="styles/theme_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/treeview_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/element_styles.css" media="screen">
+	</head>
+	<body>
+		<div class="header">
+			<div class="headerLogo">
+				<img src="styles/AnimationConverterLogoHeader.png"></img>
+			</div>
+			<div class="headerBlueRight">
+				<a href="https://www.soxware.com" class="headerLink">soxware.com</a>
+			</div>
+		</div>
+		<div class="versionHeader">
+			<p class="versionText">Version: <b>1.02p03</b> </p>
+		</div>
+		<div class="leftContent">
+			<div class="leftContentInner">
+				<div class="leftContentHeadline">
+					Animation Converter
+				</div>
+				<!-- Tree View -->
+				<ol class="tree">
+					
+<li class="file"><a href="AnimationConverterManual.html"><b><u>Animation Converter Manual</u></b></a></li>
+
+<li>
+	<label for="VideoTutorial"><a href="pages/VideoTutorial.html" class="treeFolderLink">Video Tutorial</a></label> <input type="checkbox"  id="VideoTutorial" /> 
+	<ol>
+<li class="file"><a href="pages/Tutorial1.html">Video Tutorial 1</a></li>
+
+<li class="file"><a href="pages/Tutorial2.html">Video Tutorial 2</a></li>
+</ol>
+</li>
+
+<li class="file"><a href="pages/UserInterface.html">User Interface</a></li>
+
+<li>
+	<label for="ScriptingAPI"><a href="pages/ScriptingAPI.html" class="treeFolderLink">C# Scripting API</a></label> <input type="checkbox"  id="ScriptingAPI" /> 
+	<ol>
+<li>
+	<label for="Methods"><a href="pages/Methods.html" class="treeFolderLink">Methods</a></label> <input type="checkbox"  id="Methods" /> 
+	<ol>
+<li class="file"><a href="pages/AnimationConverterConvert.html">Convert</a></li>
+
+<li class="file"><a href="pages/AnimationConverterGetAnimationType.html">GetAnimationType</a></li>
+
+<li class="file"><a href="pages/AnimationConverterGetAllGenericRootMotionBones.html">GetAllGenericRootMotionBones</a></li>
+
+<li class="file"><a href="pages/AnimationConverterGetVersion.html">GetVersion</a></li>
+
+<li class="file"><a href="pages/AnimationConverterCloneWithoutComponents.html">CloneWithoutComponents</a></li>
+</ol>
+</li>
+
+<li>
+	<label for="Types"><a href="pages/Types.html" class="treeFolderLink">Types</a></label> <input type="checkbox"  id="Types" /> 
+	<ol>
+<li class="file"><a href="pages/AnimationConverterConfiguration.html">class Configuration</a></li>
+
+<li class="file"><a href="pages/AnimationConverterPrefabPair.html">struct PrefabPair</a></li>
+
+<li class="file"><a href="pages/AnimationConverterConstrainMask.html">struct ConstrainMask</a></li>
+
+<li class="file"><a href="pages/AnimationConverterAnimationType.html">enum AnimationType</a></li>
+
+<li class="file"><a href="pages/AnimationConverterKeyReductionMode.html">enum KeyReductionMode</a></li>
+</ol>
+</li>
+</ol>
+</li>
+
+<li class="file"><a href="pages/Support.html">Support / FAQ</a></li>
+
+<li class="file"><a href="pages/ReleaseNotes.html">Release Notes</a></li>
+
+<li class="file"><a href="pages/Credits.html">Credits</a></li>
+
+				</ol>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="mainContentInner">
+				<h1 class="headline1" id="">Animation Converter Manual</h1><p class="textBlock">In Unity the animation type (Humanoid, Generic or Legacy) of animation clips can only be changed for clips imported from a 3D modeling format (e.g. *.fbx, *.blend,...). Often animations only exist as *.anim files (e.g. in some Asset Store Packages, animations created in Unity,...). With the Animation Converter it's possible to change the animation type of animation clips that solely exist as *.anim files.</p><p class="textBlock">This manual will help you to learn how to use the Animation Converter. You can read it from the start to the finish, or use it as a reference.</p><p class="textBlock">Learn how to use the Animation Converter by watching the <a href="pages/VideoTutorial.html" class="link">Video Tutorial</a>.</p><h2 class="headline2" id="">Compatibility</h2><p class="textBlock">The Animation Converter is compatible with <b>Unity 5.5 or newer</b>.</p><h2 class="headline2" id="">Abbreviations</h2><table class="themeTable">
+    <tr class="themeTableRow">
+        <th class="themeTableHeader">Abbreviation</th>
+        <th class="themeTableHeader">Description</th>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">IK</td>
+        <td class="themeTableCell">Inverse Kinematics</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">RM</td>
+        <td class="themeTableCell">Root Motion</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">UI</td>
+        <td class="themeTableCell">User Interface</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">fps</td>
+        <td class="themeTableCell">Frames Per Second</td>
+    </tr>
+</table><h2 class="headline2" id="FurtherReading">Further Reading</h2><table class="themeTable">
+    <tr class="themeTableRow">
+    <th class="themeTableHeader">Link</th>
+        <th class="themeTableHeader">Description</th>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="https://unity3d.com/de/learn/tutorials/topics/animation" class="link">Unity Video Tutorials - Animations</a></td>
+        <td class="themeTableCell">All video tutorials of Unity related to animations.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="https://docs.unity3d.com/Manual/AnimationSection.html" class="link">Unity Manual - Animations</a></td>
+        <td class="themeTableCell">The Unity Manual has a detailed section about the animation system. Topics like the different animation types (Humanoid, Generic and Legacy), Root Motion and more are covered.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="https://blogs.unity3d.com/2014/05/26/mecanim-humanoids" class="link">Unity Blog - Mecanim Humanoids</a></td>
+        <td class="themeTableCell">A detailed blog post about Humanoids and retargeting. A must read when working with Humanoid animations.</td>
+    </tr>
+</table><h2 class="headline2" id="">Need Help?</h2><p class="textBlock">Your animation didn't convert correctly or you simply got stuck? Please check out the support section of the manual: <a href="pages/Support.html" class="link">Support / FAQ</a></p>
+				<div class="mainContentFooter">
+					<p class="textBlock" style="float:left">Copyright © 2018 Soxware Interactive ALL RIGHTS RESERVED</p>
+					<p class="textBlock" align="right"><a href="https://www.facebook.com/Soxware/" class="link">Facebook</a> | <a href="https://twitter.com/SoxwareInteract" class="link">Twitter</a> | <a href="https://www.youtube.com/channel/UCCuE6nI5gHvUQjx0lo6Twtg" class="link">Youtube</a></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

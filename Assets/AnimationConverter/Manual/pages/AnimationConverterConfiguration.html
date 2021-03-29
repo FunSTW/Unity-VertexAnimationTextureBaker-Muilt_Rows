@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="../styles/Favicon.png" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Animation Converter - class Configuration</title>
+		<link rel="stylesheet" type="text/css" href="../styles/theme_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../styles/treeview_styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../styles/element_styles.css" media="screen">
+	</head>
+	<body>
+		<div class="header">
+			<div class="headerLogo">
+				<img src="../styles/AnimationConverterLogoHeader.png"></img>
+			</div>
+			<div class="headerBlueRight">
+				<a href="https://www.soxware.com" class="headerLink">soxware.com</a>
+			</div>
+		</div>
+		<div class="versionHeader">
+			<p class="versionText">Version: <b>1.02p03</b> </p>
+		</div>
+		<div class="leftContent">
+			<div class="leftContentInner">
+				<div class="leftContentHeadline">
+					Animation Converter
+				</div>
+				<!-- Tree View -->
+				<ol class="tree">
+					
+<li class="file"><a href="../AnimationConverterManual.html">Animation Converter Manual</a></li>
+
+<li>
+	<label for="VideoTutorial"><a href="VideoTutorial.html" class="treeFolderLink">Video Tutorial</a></label> <input type="checkbox"  id="VideoTutorial" /> 
+	<ol>
+<li class="file"><a href="Tutorial1.html">Video Tutorial 1</a></li>
+
+<li class="file"><a href="Tutorial2.html">Video Tutorial 2</a></li>
+</ol>
+</li>
+
+<li class="file"><a href="UserInterface.html">User Interface</a></li>
+
+<li>
+	<label for="ScriptingAPI"><a href="ScriptingAPI.html" class="treeFolderLink">C# Scripting API</a></label> <input type="checkbox" checked id="ScriptingAPI" /> 
+	<ol>
+<li>
+	<label for="Methods"><a href="Methods.html" class="treeFolderLink">Methods</a></label> <input type="checkbox"  id="Methods" /> 
+	<ol>
+<li class="file"><a href="AnimationConverterConvert.html">Convert</a></li>
+
+<li class="file"><a href="AnimationConverterGetAnimationType.html">GetAnimationType</a></li>
+
+<li class="file"><a href="AnimationConverterGetAllGenericRootMotionBones.html">GetAllGenericRootMotionBones</a></li>
+
+<li class="file"><a href="AnimationConverterGetVersion.html">GetVersion</a></li>
+
+<li class="file"><a href="AnimationConverterCloneWithoutComponents.html">CloneWithoutComponents</a></li>
+</ol>
+</li>
+
+<li>
+	<label for="Types"><a href="Types.html" class="treeFolderLink">Types</a></label> <input type="checkbox" checked id="Types" /> 
+	<ol>
+<li class="file"><a href="AnimationConverterConfiguration.html"><b><u>class Configuration</u></b></a></li>
+
+<li class="file"><a href="AnimationConverterPrefabPair.html">struct PrefabPair</a></li>
+
+<li class="file"><a href="AnimationConverterConstrainMask.html">struct ConstrainMask</a></li>
+
+<li class="file"><a href="AnimationConverterAnimationType.html">enum AnimationType</a></li>
+
+<li class="file"><a href="AnimationConverterKeyReductionMode.html">enum KeyReductionMode</a></li>
+</ol>
+</li>
+</ol>
+</li>
+
+<li class="file"><a href="Support.html">Support / FAQ</a></li>
+
+<li class="file"><a href="ReleaseNotes.html">Release Notes</a></li>
+
+<li class="file"><a href="Credits.html">Credits</a></li>
+
+				</ol>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="mainContentInner">
+				<h1 class="headline1" id="">class AnimationConverter.Configuration</h1><h2 class="headline2" id="">Description</h2><p class="textBlock">This class holds all configuration parameters for setting up the conversion.</p><h2 class="headline2" id="">Properties</h2><table class="themeTable">
+    <tr class="themeTableRow">
+        <th class="themeTableHeader">Type</th>
+        <th class="themeTableHeader">Name</th>
+        <th class="themeTableHeader">Description</th>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="AnimationConverterPrefabPair.html" class="link">AnimationConverter.PrefabPair</a>[]</td>
+        <td class="themeTableCell">Prefabs</td>
+        <td class="themeTableCell">All prefabs of the models related to the animations that should be converted.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">GameObject</td>
+        <td class="themeTableCell">DestinationPrefab</td>
+        <td class="themeTableCell">The prefab configured with as same animation type as the destination animation type.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="AnimationConverterAnimationType.html" class="link">AnimationConverter.AnimationType</a></td>
+        <td class="themeTableCell">DestinationAnimationType</td>
+        <td class="themeTableCell">Defines the animation type the animation clips should be converted to.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">string</td>
+        <td class="themeTableCell">OutputDirectory</td>
+        <td class="themeTableCell">The directory in which the converted animations should be stored. The directory needs to be relative to the "Assets" folder (e.g. "Assets/Converted Animations").</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">bool</td>
+        <td class="themeTableCell">SampleHumanoidHandIK</td>
+        <td class="themeTableCell">Defines if Mechanim's humanoid IK (Inverse Kinematics) should be enabled for the hands while sampling the humanoid animation. This is only relevant when converting a humanoid animation to generic or legacy.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">bool</td>
+        <td class="themeTableCell">SampleHumanoidFootIK</td>
+        <td class="themeTableCell">Defines if Mechanim's humanoid IK (Inverse Kinematics) should be enabled for the feet while sampling the humanoid animation. This is only relevant when converting a humanoid animation to generic or legacy.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="AnimationConverterConstrainMask.html" class="link">AnimationConverter.ConstrainMask</a></td>
+        <td class="themeTableCell">ConstrainRootMotionPosition</td>
+        <td class="themeTableCell">Constrains the root bones position x, y or z value. Only supported when converting from humanoid to generic/Legacy.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="AnimationConverterConstrainMask.html" class="link">AnimationConverter.ConstrainMask</a></td>
+        <td class="themeTableCell">ConstrainRootMotionRotation</td>
+        <td class="themeTableCell">Constrains the root bones rotation x, y or z value. Only supported when converting from humanoid to generic/Legacy.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell"><a href="AnimationConverterKeyReductionMode.html" class="link">AnimationConverter.KeyReductionMode</a></td>
+        <td class="themeTableCell">KeyReduction</td>
+        <td class="themeTableCell">The key reduction strategy.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">float</td>
+        <td class="themeTableCell">KeyReductionPositionError</td>
+        <td class="themeTableCell">Defines how much error (in the form of maximum delta deviation in percentage) the 'lossy' KeyReduction mode should tolerate when reducing position curves. A smaller value results in a better looking animation and a bigger file size.
+        </br>
+        </br>ATTENTION: The key reduction algorithm is a custom implementation. Passing the same values used with Unity's key reduction algorithm can produce different results.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">float</td>
+        <td class="themeTableCell">KeyReductionRotationError</td>
+        <td class="themeTableCell">Defines how much error (in the form of maximum delta deviation in percentage) the 'lossy' KeyReduction mode should tolerate when reducing rotation curves. A smaller value results in a better looking animation and a bigger file size.
+        </br>
+        </br>ATTENTION: The key reduction algorithm is a custom implementation. Passing the same values used with Unity's key reduction algorithm can produce different results.</td>
+    </tr>
+    <tr class="themeTableRow">
+        <td class="themeTableCell">float</td>
+        <td class="themeTableCell">KeyReductionScaleError</td>
+        <td class="themeTableCell">Defines how much error (in the form of delta deviation in percentage) the 'lossy' KeyReduction mode should tolerate when reducing scale curves. A smaller value results in a better looking animation and a bigger file size.
+        </br>
+        </br>ATTENTION: The key reduction algorithm is a custom implementation. Passing the same values used with Unity's key reduction algorithm can produce different results.</td>
+    </tr>
+</table>
+				<div class="mainContentFooter">
+					<p class="textBlock" style="float:left">Copyright © 2018 Soxware Interactive ALL RIGHTS RESERVED</p>
+					<p class="textBlock" align="right"><a href="https://www.facebook.com/Soxware/" class="link">Facebook</a> | <a href="https://twitter.com/SoxwareInteract" class="link">Twitter</a> | <a href="https://www.youtube.com/channel/UCCuE6nI5gHvUQjx0lo6Twtg" class="link">Youtube</a></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
