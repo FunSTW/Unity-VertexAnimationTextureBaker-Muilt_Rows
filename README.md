@@ -6,6 +6,6 @@
 ## Reference
 * https://github.com/Unity-Technologies/Animation-Instancing
 * https://tedsieblog.wordpress.com/2020/03/24/animation-instancing-a-case-study-of-ten-thousand-units-rendering/
-## Asset Reference
+## Asset Source
 * 3D Model https://sketchfab.com/3d-models/low-poly-male-character-free-download-634469944b1f4778940da77b72deb439
 * Animation https://www.mixamo.com/#/
