@@ -1,4 +1,4 @@
-# Unity 2019.3 Muilt-Rows Vertex Animation Baker
+# Unity Vertex Animation Baker - Muilt-Rows
 * Modify from this project : https://github.com/chenjd/Render-Crowd-Of-Animated-Characters
 ![image](https://github.com/FunsTW/VertexAnimationBaker/blob/main/README/image/Window.jpg)
 ## Additional Feature
