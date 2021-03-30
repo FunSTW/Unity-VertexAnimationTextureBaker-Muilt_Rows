@@ -1,7 +1,9 @@
-# Unity - VertexAnimationBaker
+# Unity 2019.3 Muilt-Rows Vertex Animation Baker
 * Modify from this project : https://github.com/chenjd/Render-Crowd-Of-Animated-Characters
+![image](https://github.com/FunsTW/VertexAnimationBaker/blob/main/README/image/Window.jpg)
 ## Additional Feature
 * Baked Muilt-Rows Animation Texture.
+![image](https://github.com/FunsTW/VertexAnimationBaker/blob/main/README/image/Muilt-Rows.jpg)
 * Add padding pixel to Fix Muilt-Rows Animation Texture "Bilinear" wrong Pixel Sampling.
 ## Reference
 * https://github.com/Unity-Technologies/Animation-Instancing
