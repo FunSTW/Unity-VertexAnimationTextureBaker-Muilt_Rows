@@ -5,9 +5,10 @@
 * Baked Muilt-Rows Animation Texture.
 ![image](https://github.com/FunsTW/VertexAnimationBaker/blob/main/README/image/Muilt-Rows.jpg)
 * Add padding pixel to Fix Muilt-Rows Animation Texture "Bilinear" wrong Pixel Sampling.
+* Use MaterialPropertyBlock Set random start time.
 ## Reference
-* https://github.com/Unity-Technologies/Animation-Instancing
 * https://tedsieblog.wordpress.com/2020/03/24/animation-instancing-a-case-study-of-ten-thousand-units-rendering/
+* https://github.com/Unity-Technologies/Animation-Instancing
 ## Asset Source
 * 3D Model https://sketchfab.com/3d-models/low-poly-male-character-free-download-634469944b1f4778940da77b72deb439
 * Animation https://www.mixamo.com/#/
