@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Linq;
 
 public class AnimMapBakerWindow : EditorWindow {
 
@@ -22,9 +23,9 @@ public class AnimMapBakerWindow : EditorWindow {
         X =  0, 
         Y =  1, 
         Z =  2,
-        rX = 3, 
-        rY = 4, 
-        rZ = 5
+        reverseX = 3,
+        reverseY = 4,
+        reverseZ = 5
     }
 
     #region FIELDS
@@ -35,12 +36,14 @@ public class AnimMapBakerWindow : EditorWindow {
     private static bool _multipleRows = true;
     private static string _path = "_Export";
     private static string _subPath = "SubPath";
-    private static string _shader = "funs/VATUnlit";
+    private static string _shader = "funs/VATSimple";
     private static SaveStrategy _stratege = SaveStrategy.Prefab;
     private static Direction _X = Direction.X;
     private static Direction _Y = Direction.Y;
     private static Direction _Z = Direction.Z;
     private static Shader _animMapShader;
+
+    private static bool showTransform = true,showAdvanced;
     #endregion
 
 
@@ -67,29 +70,78 @@ public class AnimMapBakerWindow : EditorWindow {
         }
         _subPath = _targetGo == null ? _subPath : _targetGo.name;
 
-        EditorGUILayout.LabelField(string.Format($"output path:{Path.Combine(_path, _subPath)}"));
+        EditorGUILayout.HelpBox(string.Format($"Output Path : {Path.Combine(_path, _subPath)}"), MessageType.Info);
         _path = EditorGUILayout.TextField(_path);
         _subPath = EditorGUILayout.TextField(_subPath);
 
         _stratege = (SaveStrategy)EditorGUILayout.EnumPopup("output type:", _stratege);
 
         _multipleRows = EditorGUILayout.Toggle("Set VAT to multiple rows", _multipleRows);
-        _shader = EditorGUILayout.TextField("Shader Find", _shader);
 
-        _X = (Direction)EditorGUILayout.EnumPopup("Right", _X);
-        _Y = (Direction)EditorGUILayout.EnumPopup("Up", _Y);
-        _Z = (Direction)EditorGUILayout.EnumPopup("Forward", _Z);
+        showTransform = EditorGUILayout.Foldout(showTransform, "Bake Transform");
+        if(showTransform) {
+            EditorGUI.indentLevel += 2;
+            _X = (Direction)EditorGUILayout.EnumPopup("Right", _X);
+            _Y = (Direction)EditorGUILayout.EnumPopup("Up", _Y);
+            _Z = (Direction)EditorGUILayout.EnumPopup("Forward", _Z);
+            EditorGUI.indentLevel -= 2;
+        }
         int[] xyz = new int[3];
         SetXYZInfo(xyz, _X, _Y, _Z);
 
         int count = 0;
+        int curClipFrame = 0;
+        int bakedColume = 0;
+        int bakedRow = 0;
+        MessageType messageType = MessageType.Warning;
         if(_targetGo) {
             SkinnedMeshRenderer smr = _targetGo.GetComponentInChildren<SkinnedMeshRenderer>();
-            count = smr? smr.sharedMesh.vertexCount : 0;
-        }
-        EditorGUILayout.LabelField(string.Format($"(Info) Vertex Count : {count}"));
+            Animation anim = _targetGo.GetComponent<Animation>();
 
-        if(!GUILayout.Button("Bake")) return;
+            count = smr ? smr.sharedMesh.vertexCount : 0;
+            if(anim != null) {
+                List<AnimationState> _animClips = new List<AnimationState>(anim.Cast<AnimationState>());
+                curClipFrame = (int)(_animClips[0].clip.frameRate * _animClips[0].length);
+            }
+
+            bakedColume = Mathf.NextPowerOfTwo(count);
+            bakedRow = Mathf.ClosestPowerOfTwo(curClipFrame);
+
+            if(_multipleRows) {
+                bakedColume = (int)Mathf.Log(Mathf.NextPowerOfTwo(count), 2);
+                bakedRow = (int)Mathf.Log(Mathf.ClosestPowerOfTwo(curClipFrame), 2);
+                int colHighOffset = (bakedColume - bakedRow) / 2;
+                if(colHighOffset > 0) {
+                    bakedColume -= colHighOffset;
+                    bakedRow += colHighOffset;
+                }
+                bakedColume = (int)Mathf.Pow(2, bakedColume);
+                bakedRow = (int)Mathf.Pow(2, bakedRow);
+            }
+
+            if(smr && anim) {
+                messageType = MessageType.Info;
+            }
+        }
+        bool clickBakeBTN = !GUILayout.Button("Bake");
+
+        string smrS = count != 0 ? $"Vertex Count : {count}" : "SkinnedMeshRenderer Missing";
+        string aniS = curClipFrame != 0 ? $"Animation Frame Count : {curClipFrame}" : "Animation Missing";
+
+        EditorGUILayout.HelpBox(string.Format($"{smrS}\n{aniS}" +
+            $"\nBaked Texture Output Size : {bakedColume} x {bakedRow}"),
+            messageType);
+
+        EditorGUILayout.Space(10);
+        showAdvanced = EditorGUILayout.Foldout(showAdvanced, "Advanced");
+        if(showAdvanced) {
+            EditorGUI.indentLevel += 2;
+            _shader = EditorGUILayout.TextField("Shader Find", _shader);
+            EditorGUI.indentLevel -= 2;
+        }
+
+
+        if(clickBakeBTN) return;
 
         if(_targetGo == null)
         {
@@ -196,6 +248,8 @@ public class AnimMapBakerWindow : EditorWindow {
         var folderPath = CreateFolder();
         PrefabUtility.SaveAsPrefabAsset(go, Path.Combine(folderPath, data.Name + ".prefab")
             .Replace("\\", "/"));
+
+        DestroyImmediate(go);
     }
 
     private static string CreateFolder()

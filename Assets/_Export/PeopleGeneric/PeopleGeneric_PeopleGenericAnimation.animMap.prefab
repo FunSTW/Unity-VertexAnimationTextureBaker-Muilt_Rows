@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 376705788449811245}
   - component: {fileID: 8862318447002148744}
   - component: {fileID: 1190913577123304360}
-  - component: {fileID: 2794547612086924230}
   m_Layer: 0
   m_Name: PeopleGeneric_PeopleGenericAnimation.animMap
   m_TagString: Untagged
@@ -80,17 +79,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6657136997048185800}
   m_Mesh: {fileID: -2867268700477887873, guid: c96ea332148ee6f4b8fe2cb38975a160, type: 3}
---- !u!114 &2794547612086924230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657136997048185800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bfb4f904f2c7647aff8362734fd006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floatReferenceString: _Diverse
-  randomRange: {x: 0, y: 1}
