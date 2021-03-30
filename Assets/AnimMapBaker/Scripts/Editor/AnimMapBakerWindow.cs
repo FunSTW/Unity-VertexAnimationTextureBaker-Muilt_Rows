@@ -142,7 +142,6 @@ public class AnimMapBakerWindow : EditorWindow {
 
 
         if(clickBakeBTN) return;
-
         if(_targetGo == null)
         {
             EditorUtility.DisplayDialog("err", "targetGo is null！", "OK");
@@ -156,14 +155,17 @@ public class AnimMapBakerWindow : EditorWindow {
 
         _baker.SetAnimData(_targetGo, _multipleRows, xyz);
 
+        EditorUtility.DisplayProgressBar("Bake Animation Texture", "baking...", 0.5f);
         List<BakedData> list = _baker.Bake();
-
-        if (list == null) return;
+        EditorUtility.DisplayProgressBar("Bake Animation Texture", "saving...", 0.8f);
+        if(list == null) return;
         foreach (var t in list)
         {
             var data = t;
             Save(ref data);
         }
+        EditorUtility.DisplayProgressBar("Bake Animation Texture", "complete...", 0.99f);
+        EditorUtility.ClearProgressBar();
     }
 
     private void SetXYZInfo(int[] xyz, Direction X, Direction Y, Direction Z) {
@@ -224,6 +226,7 @@ public class AnimMapBakerWindow : EditorWindow {
             mat.EnableKeyword("VATMultipleRows_ON");
             mat.SetInt("_VATMultipleRows", 1);
         }
+        mat.enableInstancing = true;
 
         var folderPath = CreateFolder();
         AssetDatabase.CreateAsset(mat, Path.Combine(folderPath, data.Name + ".mat"));

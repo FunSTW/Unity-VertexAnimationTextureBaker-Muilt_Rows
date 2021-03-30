@@ -226,10 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a6c76abff0e484b9d664027654456b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 6657136997048185800, guid: 3bd404a4ad530f34984c7c43a7a3b44b,
+  spawnPrefab: {fileID: 48434383694645985, guid: 3c15242bc1d5f2d499c5aa52fffb33bf,
     type: 3}
   gridWidth: 100
   gridHeight: 100
+  padding: 3
 --- !u!1 &651291533
 GameObject:
   m_ObjectHideFlags: 0

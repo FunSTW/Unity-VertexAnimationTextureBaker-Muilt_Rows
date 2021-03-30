@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour {
     public GameObject spawnPrefab;
     public int gridWidth;
     public int gridHeight;
+    public float padding = 2;
 
     #endregion
 
@@ -25,7 +26,7 @@ public class SpawnManager : MonoBehaviour {
         {
             for(int j = 0; j < gridHeight; j++)
             {
-                Instantiate<GameObject>(spawnPrefab, new Vector3(i * 2, 0, j * 2), Quaternion.identity);
+                Instantiate<GameObject>(spawnPrefab, new Vector3(i * padding, 0, j * padding), Quaternion.identity);
             }
         }
     }
