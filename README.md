@@ -4,8 +4,8 @@
 ## Additional Feature
 * Baked Muilt-Rows Animation Texture.
 ![image](https://github.com/FunsTW/VertexAnimationBaker/blob/main/README/image/Muilt-Rows.jpg)
-* Add padding pixel to Fix Muilt-Rows Animation Texture "Bilinear" wrong Pixel Sampling.
-* Use MaterialPropertyBlock Set random start time.
+* Add border pixels to fix the incorrect sampling of Bilinear texture pixel junction.
+* Set random starting point with MaterialPropertyBlock.
 ![image](https://github.com/FunsTW/VertexAnimationBaker_Muilt-Rows/blob/main/README/image/RandomMaterialPropertyBlockFloat.png)
 ## Reference
 * https://tedsieblog.wordpress.com/2020/03/24/animation-instancing-a-case-study-of-ten-thousand-units-rendering/
