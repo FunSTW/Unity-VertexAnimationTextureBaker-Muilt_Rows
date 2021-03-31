@@ -21,7 +21,7 @@ inline half4 GetSampledVATVertPos(int vid,float diverse)
 	half sampleY = _Time.y / _AnimLen + diverse;
 #else
 	//Avoiding "Texture Bilinear" sampling errors
-	half paddingOffset = 1 / (1.0 + _AnimOffsetYPixel);
+	half paddingOffset = 1 / ((float)_AnimOffsetYPixel);
 
 	int nowLayer = vid / _AnimMap_TexelSize.z;
 
