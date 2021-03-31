@@ -12,8 +12,9 @@ public class ShowFPS : MonoBehaviour
         QualitySettings.vSyncCount = 0;
     }
 
-    void Update()
-    {
-        text.text = (1 / Time.deltaTime).ToString();
+    void Update() {
+        if(Time.frameCount % 10 == 0) {
+            text.text = (1 / Time.deltaTime).ToString("F1");
+        }
     }
 }
