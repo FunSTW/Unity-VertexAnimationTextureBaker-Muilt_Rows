@@ -227,7 +227,7 @@ public class AnimMapBaker{
         }
 
         var animMap = new Texture2D(col ,row, TextureFormat.RGBAHalf, true);
-        animMap.name = string.Format($"{_animData.Value.Name}_{curAnim.name}.animMap");
+        animMap.name = string.Format($"{_animData.Value.Name}_{curAnim.name}");
         _animData.Value.AnimationPlay(curAnim.name);
 
         //Animation Row
