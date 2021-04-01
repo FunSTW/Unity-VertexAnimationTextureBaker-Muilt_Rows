@@ -55,7 +55,7 @@ Shader "funs/VATSimple"
 				UNITY_SETUP_INSTANCE_ID(v);
 				half diverse = UNITY_ACCESS_INSTANCED_PROP(Props, _Diverse);
 
-				half4 pos = GetSampledVATVertPos(vid,diverse);
+				half4 pos = GetSampledVATVertPos(vid,_Time.y,diverse);
 				v2f o;
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.vertex = UnityObjectToClipPos(pos);

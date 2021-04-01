@@ -14,11 +14,11 @@ inline half remap01(half x, half s1, half s2)
 	return x * (s2 - s1) + s1;
 }
 
-inline half4 GetSampledVATVertPos(int vid,float diverse)
+inline half4 GetSampledVATVertPos(int vid,float time,float diverse)
 {
 #if !VATMultipleRows_ON
 	half sampleX = (vid + 0.5) * _AnimMap_TexelSize.x;
-	half sampleY = _Time.y / _AnimLen + diverse;
+	half sampleY = time / _AnimLen + diverse;
 #else
 	//Avoiding "Texture Bilinear" sampling errors
 	half paddingOffset = 1 / ((float)_AnimOffsetYPixel);
@@ -29,7 +29,7 @@ inline half4 GetSampledVATVertPos(int vid,float diverse)
 	half offsetY = nowLayer * offsetYUnit;
 
 	half sampleX = ((vid - nowLayer * _AnimMap_TexelSize.z) + 0.5) * _AnimMap_TexelSize.x;
-	half sampleY = frac(_Time.y / _AnimLen + diverse);
+	half sampleY = frac(time / _AnimLen + diverse);
 	sampleY = remap01(sampleY, paddingOffset, 1 - paddingOffset) * offsetYUnit;
 	sampleY = sampleY + offsetY;
 #endif
